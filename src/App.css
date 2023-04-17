@@ -11,6 +11,12 @@
   height: 70px;
 }
 
+#heading{
+  font-size: larger;
+  margin: 20px 0px;
+  text-align: center;
+}
+
 .container{
   display: flex;
   flex-direction: row;
@@ -22,6 +28,7 @@
 .liked-item{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 5px 5px antiquewhite;
   border: 2px solid black;

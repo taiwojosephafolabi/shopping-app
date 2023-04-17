@@ -1,6 +1,10 @@
 import "./App.css";
-import LikedItems from "./components/LikedItems";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarComp from "./components/NavbarComp";
 import Navbar from "./components/Navbar";
+import LikedItems from "./components/LikedItems";
+import Footer from "./components/Footer";
+
 
 function App() {
   const itemsData = [
@@ -43,8 +47,11 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <NavbarComp />
+      <h1 id="heading">Liked Items</h1>
+      {/* <Navbar /> */}
       <LikedItems items={itemsData} />
+      <Footer />
     </div>
   );
 }
