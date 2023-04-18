@@ -1,10 +1,38 @@
 .App{
-  
+ background-color: white;
 }
 
 .navbar {
   display: flex;
   justify-content: center;
+  margin-bottom: 0px;
+}
+
+.d-flex .search-button {
+  color: black;
+  background-color: white;
+  border: 2px solid antiquewhite;
+}
+
+.d-flex .search-button:hover {
+  color: white;
+  background-color: antiquewhite;
+  border: 2px solid antiquewhite;
+}
+
+.categories .me-auto{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: antiquewhite;
+  height: fit-content;
+  width: 100%;
+  
+}
+
+.categories .me-auto .nav-dropdown{
+  background-color: antiquewhite;
 }
 
 .logo {
@@ -20,7 +48,8 @@
 .container{
   display: flex;
   flex-direction: row;
-  margin: 10px;
+  justify-content: center;
+  margin: 10px, 0px 0px 0px;
   flex-wrap: wrap;
 }
 
@@ -29,8 +58,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform .2s;
   align-items: center;
   box-shadow: 5px 5px antiquewhite;
+  background-color: white;
   border: 2px solid black;
   width: 30%;
   margin: 10px;
@@ -43,6 +74,11 @@
 
 .liked-item h6{
   text-align: center;
+}
+
+.liked-item:hover {
+  display: flex;
+  transform: scale(1.5)
 }
 
 .image{
