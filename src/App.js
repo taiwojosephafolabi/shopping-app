@@ -5,6 +5,8 @@ import NavbarComp from "./components/NavbarComp";
 import Footer from "./components/Footer";
 import Categories from "./components/Categories";
 import LikedItems from "./components/LikedItems";
+import { useState } from "react";
+
 function App() {
   const itemsData = [
     {
@@ -43,13 +45,36 @@ function App() {
     },
   ];
 
+  function AddToCart(item) {
+    setCartItem(item + 1);
+    console.log("Item added to cart!");
+  }
+
+  function AddToWishlist(item) {
+    setWishlistItem(item + 1);
+    console.log("Item added to wishlist!");
+  }
+
+  const [cartItem, setCartItem] = useState(0);
+
+  const [wishlistItem, setWishlistItem] = useState(0);
+
   return (
     <div className="App">
-      <NavbarComp />
+      <NavbarComp
+        cartTotal={cartItem}
+        setCartItem={setCartItem}
+        wishlistTotal={wishlistItem}
+        setWishlistItem={setWishlistItem}
+      />
       <Categories />
       <h1 id="heading">Liked Items</h1>
       {/* <Navbar /> */}
-      <LikedItems items={itemsData} />
+      <LikedItems
+        items={itemsData}
+        AddToCart={(event) => AddToCart(cartItem)}
+        AddToWishlist={(event) => AddToWishlist(wishlistItem)}
+      />
       <Footer />
     </div>
   );

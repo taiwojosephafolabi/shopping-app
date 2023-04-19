@@ -1,12 +1,13 @@
-import { BsFillCartFill } from "react-icons/bs";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Cart from "./Cart";
+import Wishlist from "./Wishlist";
 
-function BasicExample() {
+function BasicExample(props) {
   return (
     <Navbar expand="lg">
       <Container>
@@ -26,7 +27,11 @@ function BasicExample() {
               <NavDropdown.Item href="#action/3.4">Settings</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <BsFillCartFill className="cart"/>
+          <Wishlist
+            wishlistTotal={props.wishlistTotal}
+            setWishlistItem={props.setWishlistItem}
+          />
+          <Cart cartTotal={props.cartTotal} setCartItem={props.setCartItem} />
           <Form className="d-flex">
             <Form.Control
               type="search"

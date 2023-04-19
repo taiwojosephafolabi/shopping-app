@@ -1,18 +1,18 @@
-import AddToCartButton from './AddToCartButton'
+import CartButton from "./AddToCartButton";
+import WishlistButton from "./AddToWishlistButton";
 
 function LikedItems(props) {
-  function AddToCart() {
-    console.log("You clicked me!");
-  };
-
   return (
     <div className="container">
-      {props.items.map((itemsData, index) =>(
-        <div key={index} className = "liked-item">
+      {props.items.map((itemsData, index) => (
+        <div key={index} className="liked-item">
           <h4> {itemsData.name} </h4>
-          <img className="image" src={itemsData.image} alt="Logo" />
+          <img className="image" src={itemsData.image} alt="ImageItem" />
           <h6> Liked on: {itemsData.likedDate}</h6>
-          <AddToCartButton AddToCart={AddToCart} />
+          <span class="button-container">
+            <CartButton AddToCart={props.AddToCart} />
+            <WishlistButton AddToWishlist={props.AddToWishlist} />
+          </span>
         </div>
       ))}
     </div>
