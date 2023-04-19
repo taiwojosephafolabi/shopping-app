@@ -1,5 +1,8 @@
 .App{
  background-color: white;
+ width: 100vw;
+ padding: 0px;
+ margin: 5px;
 }
 
 .navbar {
@@ -7,11 +10,16 @@
   justify-content: center;
   margin-bottom: 0px;
 }
+.navbar .cart{
+  scale: 2;
+  margin-right: 20px;
+}
 
 .d-flex .search-button {
   color: black;
   background-color: white;
   border: 2px solid antiquewhite;
+  transition-duration: 0.4s;
 }
 
 .d-flex .search-button:hover {
@@ -27,7 +35,7 @@
   justify-content: space-evenly;
   background-color: antiquewhite;
   height: fit-content;
-  width: 100%;
+  width: 100vw;
   
 }
 
@@ -63,7 +71,7 @@
   box-shadow: 5px 5px antiquewhite;
   background-color: white;
   border: 2px solid black;
-  width: 30%;
+  width: 27%;
   margin: 10px;
   padding: 10px;
 }
@@ -78,11 +86,29 @@
 
 .liked-item:hover {
   display: flex;
-  transform: scale(1.5)
+  transform: scale(1.2)
 }
 
 .image{
   width: auto;
   height: 120px;
   padding-right: 15px;
+}
+
+.add-to-cart-btn{
+  color: black;
+  background-color: white;
+  border: 2px solid antiquewhite;
+  transition-duration: 0.4s;
+}
+
+.add-to-cart-btn:hover {
+  color: white;
+  background-color: antiquewhite;
+  border: 2px solid antiquewhite;
+}
+.add-to-cart-btn:focus {
+  color: white;
+  background-color: #ffe4c0;
+  border: 2px solid #ffe4c0;
 }

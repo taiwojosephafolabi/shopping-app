@@ -15,7 +15,7 @@ function Categories() {
             <Nav.Link href="#clothing">Clothing</Nav.Link>
             <Nav.Link href="#shoes-accessories">Shoes & Accessories</Nav.Link>
             <Nav.Link href="#stationery">Stationery</Nav.Link>
-            <NavDropdown class="nav-dropdown" title="More" id="collasible-nav-dropdown">
+            <NavDropdown className="nav-dropdown" title="More" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Leisure</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Sport

@@ -1,9 +1,10 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { BsFillCartFill } from "react-icons/bs";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 function BasicExample() {
   return (
@@ -17,16 +18,15 @@ function BasicExample() {
             <Nav.Link href="#link">Store</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Orders
+              <NavDropdown.Item href="#action/3.2">Orders</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                Liked Items
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Liked Items</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Settings
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Settings</NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          <BsFillCartFill className="cart"/>
           <Form className="d-flex">
             <Form.Control
               type="search"
