@@ -1,7 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComp from "./components/NavbarComp";
-// import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Categories from "./components/Categories";
 import LikedItems from "./components/LikedItems";
@@ -69,7 +68,6 @@ function App() {
       />
       <Categories />
       <h1 id="heading">Liked Items</h1>
-      {/* <Navbar /> */}
       <LikedItems
         items={itemsData}
         AddToCart={(event) => AddToCart(cartItem)}
