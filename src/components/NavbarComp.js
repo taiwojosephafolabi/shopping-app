@@ -27,11 +27,6 @@ function BasicExample(props) {
               <NavDropdown.Item href="#action/3.4">Settings</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Wishlist
-            wishlistTotal={props.wishlistTotal}
-            setWishlistItem={props.setWishlistItem}
-          />
-          <Cart cartTotal={props.cartTotal} setCartItem={props.setCartItem} />
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -42,6 +37,11 @@ function BasicExample(props) {
             <Button className="search-button">Search</Button>
           </Form>
         </Navbar.Collapse>
+        <Wishlist
+          wishlistTotal={props.wishlistTotal}
+          setWishlistItem={props.setWishlistItem}
+        />
+        <Cart cartTotal={props.cartTotal} setCartItem={props.setCartItem} />
       </Container>
     </Navbar>
   );
