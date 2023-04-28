@@ -5,7 +5,7 @@
   margin: 5px;
 }
 
-.landing-page{
+.landing-page {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,17 +13,16 @@
   width: 100vw;
   height: 100vh;
   border: 10px solid #ffe4c0;
-  
 }
 
-.landing-page-items{
+.landing-page-items {
   text-align: center;
   height: auto;
   width: 50vw;
   border: 2px solid black;
   padding: 10px;
   background-color: #ffe4c0;
-  box-shadow:10px 10px antiquewhite;
+  box-shadow: 10px 10px antiquewhite;
   transition: transform 0.2s;
 }
 
@@ -133,7 +132,7 @@
   height: 70px;
 }
 
-#heading {
+.heading {
   font-size: larger;
   margin: 20px 0px;
   text-align: center;

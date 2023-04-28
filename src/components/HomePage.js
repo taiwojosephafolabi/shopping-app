@@ -16,7 +16,7 @@ function HomePage({
   AddToCart,
   AddToWishlist,
   DeleteProduct,
-  sameTypeProducts
+  sameTypeProducts,
 }) {
   return (
     <div className="App">
@@ -29,11 +29,9 @@ function HomePage({
 
       <Categories />
 
-      <h1 id="heading">Items</h1>
+      <h1 className="heading">Items</h1>
 
       <Products
-      
-
         items={data}
         sameTypeProducts={sameTypeProducts}
         OverviewProduct={(event) => OverviewProduct(event)}

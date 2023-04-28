@@ -111,10 +111,9 @@ export default function App() {
     setPage("Landing Page");
   };
 
-
-  const showProductOverviewPage = () =>{
+  const showProductOverviewPage = () => {
     setPage("Overview Product Page");
-  }
+  };
 
   function AddToCart(item) {
     setCartItem(item + 1);
@@ -142,7 +141,12 @@ export default function App() {
 
   let currentPage;
   if (page === "Landing Page") {
-    currentPage = <LandingPage showHomePage={showHomePage} showProductOverviewPage={showProductOverviewPage} />;
+    currentPage = (
+      <LandingPage
+        showHomePage={showHomePage}
+        showProductOverviewPage={showProductOverviewPage}
+      />
+    );
   } else {
     if (page === "Home Page") {
       currentPage = (
@@ -160,7 +164,7 @@ export default function App() {
         />
       );
     } else if (page === "Overview Product Page") {
-      currentPage = (<ProductOverviewPage />)
+      currentPage = <ProductOverviewPage />;
     } else {
       currentPage = <div>ERROR!</div>;
     }
