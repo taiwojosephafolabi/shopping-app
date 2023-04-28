@@ -5,6 +5,50 @@
   margin: 5px;
 }
 
+.landing-page{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  border: 10px solid #ffe4c0;
+  
+}
+
+.landing-page-items{
+  text-align: center;
+  height: auto;
+  width: 50vw;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: #ffe4c0;
+  box-shadow:10px 10px antiquewhite;
+  transition: transform 0.2s;
+}
+
+.landing-page-items:hover {
+  transform: scale(1.2);
+}
+
+.browse-btn {
+  color: black;
+  background-color: white;
+  border: 2px solid antiquewhite;
+  transition-duration: 0.4s;
+}
+
+.browse-btn:hover {
+  color: white;
+  background-color: black;
+  border: 2px solid antiquewhite;
+}
+.browse-btn:focus {
+  color: white;
+  background-color: #ffe4c0;
+  border: 2px solid #ffe4c0;
+}
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -142,6 +186,24 @@
   gap: 10px;
 }
 
+.overview-btn {
+  color: black;
+  background-color: white;
+  border: 2px solid antiquewhite;
+  transition-duration: 0.4s;
+}
+
+.overview-btn:hover {
+  color: white;
+  background-color: antiquewhite;
+  border: 2px solid antiquewhite;
+}
+.overview-btn:focus {
+  color: white;
+  background-color: #ffe4c0;
+  border: 2px solid #ffe4c0;
+}
+
 .add-to-cart-btn {
   color: black;
   background-color: white;
@@ -173,6 +235,24 @@
   border: 2px solid antiquewhite;
 }
 .add-to-wishlist-btn:focus {
+  color: white;
+  background-color: #ffe4c0;
+  border: 2px solid #ffe4c0;
+}
+
+.delete-product-btn {
+  color: black;
+  background-color: white;
+  border: 2px solid antiquewhite;
+  transition-duration: 0.4s;
+}
+
+.delete-product-btn:hover {
+  color: white;
+  background-color: antiquewhite;
+  border: 2px solid antiquewhite;
+}
+.delete-product-btn:focus {
   color: white;
   background-color: #ffe4c0;
   border: 2px solid #ffe4c0;

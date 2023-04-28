@@ -7,11 +7,19 @@ import Button from "react-bootstrap/Button";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 
-function BasicExample(props) {
+function BasicExample({
+  backToLandingPage,
+  wishlistTotal,
+  setWishlistItem,
+  cartTotal,
+  setCartItem,
+}) {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Shopping App</Navbar.Brand>
+        <Navbar.Brand href="#home" onClick={() => backToLandingPage()}>
+          Shopping App
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -38,10 +46,10 @@ function BasicExample(props) {
           </Form>
         </Navbar.Collapse>
         <Wishlist
-          wishlistTotal={props.wishlistTotal}
-          setWishlistItem={props.setWishlistItem}
+          wishlistTotal={wishlistTotal}
+          setWishlistItem={setWishlistItem}
         />
-        <Cart cartTotal={props.cartTotal} setCartItem={props.setCartItem} />
+        <Cart cartTotal={cartTotal} setCartItem={setCartItem} />
       </Container>
     </Navbar>
   );

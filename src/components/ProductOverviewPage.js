@@ -1,0 +1,12 @@
+import React from 'react'
+
+function ProductOverviewPage({showHomePage}) {
+  return (
+    <div>
+      <button type="button" className="back-btn" onclick={() => showHomePage()}>Back to Home</button>
+      <h1>Product Overview</h1>
+    </div>
+  )
+}
+
+export default ProductOverviewPage
