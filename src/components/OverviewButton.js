@@ -1,9 +1,11 @@
-function OverviewButton(props) {
+import React from "react";
+
+function OverviewButton({showProductOverviewPage}) {
   return (
     <div>
       <button
         className="overview-btn"
-        onClick={(event) => props.showProductOverviewPage(event)}
+        onClick={(event) => showProductOverviewPage(event)}
       >
         Overview
       </button>

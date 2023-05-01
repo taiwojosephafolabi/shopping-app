@@ -1,3 +1,4 @@
+import React from "react";
 import OverviewButton from "./OverviewButton";
 import CartButton from "./AddToCartButton";
 import WishlistButton from "./AddToWishlistButton";
@@ -5,6 +6,7 @@ import DeleteButton from "./DeleteButton";
 
 function Products({
   items,
+  data,
   OverviewProduct,
   AddToWishlist,
   AddToCart,
@@ -12,18 +14,18 @@ function Products({
 }) {
   return (
     <div className="container">
-      {items.map((itemsData, index) => {
+      {items.map((data, index) => {
         return (
           <div className="liked-item" key={index}>
-            <h4> {itemsData.name} </h4>
-            <img className="image" src={itemsData.image} alt={itemsData.name} />
-            <h6> Added on: {itemsData.addedDate}</h6>
+            <h4> {data.name} </h4>
+            <img className="image" src={data.image} alt={data.name} />
+            <h6> Added on: {data.addedDate}</h6>
             <span className="button-container">
               <OverviewButton OverviewProduct={OverviewProduct} />
               <WishlistButton AddToWishlist={AddToWishlist} />
               <CartButton AddToCart={AddToCart} />
               <DeleteButton
-                DeleteProduct={(event) => DeleteProduct(itemsData.id)}
+                DeleteProduct={(event) => DeleteProduct(data.id)}
               />
             </span>
           </div>

@@ -5,19 +5,23 @@ import Categories from "./Categories";
 import Products from "./Products";
 
 function HomePage({
-  productsData,
+  showHomePage,
+  backToLandingPage,
   items,
+  data,
   cartItem,
   setCartItem,
+  cartTotal,
   wishlistItem,
   setWishlistItem,
-  data,
   OverviewProduct,
   AddToCart,
   AddToWishlist,
   DeleteProduct,
-  sameTypeProducts,
 }) {
+
+  console.log("CHECK 3: ", items);
+
   return (
     <div className="App">
       <NavbarComp
@@ -25,6 +29,8 @@ function HomePage({
         setCartItem={setCartItem}
         wishlistTotal={wishlistItem}
         setWishlistItem={setWishlistItem}
+        backToLandingPage={backToLandingPage}
+        showHomePage={showHomePage}
       />
 
       <Categories />
@@ -33,9 +39,11 @@ function HomePage({
 
       <Products
         items={data}
-        sameTypeProducts={sameTypeProducts}
+        data={data}
+        cartTotal={cartItem}
         OverviewProduct={(event) => OverviewProduct(event)}
-        AddToCart={(event) => AddToCart(cartItem)}
+        AddToCart={(event) => AddToCart(cartTotal)}
+        wishlistTotal={wishlistItem}
         AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         DeleteProduct={(event) => DeleteProduct(event)}
       />

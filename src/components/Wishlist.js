@@ -1,14 +1,15 @@
+import React from "react";
 import { BsFillHeartFill } from "react-icons/bs";
 
-function Wishlist(props) {
+function Wishlist({ wishlistTotal, setWishlistItem }) {
   function handleWishlistItem() {
-    props.setWishlistItem(0);
+    setWishlistItem(0);
   }
   return (
     <div>
       <button className="wishlist-container" onClick={handleWishlistItem}>
         <BsFillHeartFill className="wishlist" />
-        <span id="wishlist-number">{props.wishlistTotal}</span>
+        <span id="wishlist-number">{wishlistTotal}</span>
       </button>
     </div>
   );

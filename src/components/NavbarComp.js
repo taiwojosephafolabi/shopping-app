@@ -1,3 +1,4 @@
+import React from 'react';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,22 +9,25 @@ import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 
 function BasicExample({
+  showHomePage,
   backToLandingPage,
-  wishlistTotal,
+  wishlistItem,
   setWishlistItem,
-  cartTotal,
+  AddToWishlist,
+  cartItem,
   setCartItem,
+  AddToCart
 }) {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="#home" onClick={() => backToLandingPage()}>
+        <Navbar.Brand onClick={() => backToLandingPage()}>
           Shopping App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link onClick={() => showHomePage()}>Home</Nav.Link>
             <Nav.Link href="#link">Store</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
@@ -46,10 +50,16 @@ function BasicExample({
           </Form>
         </Navbar.Collapse>
         <Wishlist
-          wishlistTotal={wishlistTotal}
+          wishlistTotal={wishlistItem}
           setWishlistItem={setWishlistItem}
+          AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         />
-        <Cart cartTotal={cartTotal} setCartItem={setCartItem} />
+        <Cart
+          cartTotal={cartItem}
+          setCartItem={setCartItem}
+          AddToCart={(event) => AddToCart(event)}
+
+        />
       </Container>
     </Navbar>
   );

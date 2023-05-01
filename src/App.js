@@ -115,17 +115,17 @@ export default function App() {
     setPage("Overview Product Page");
   };
 
-  function AddToCart(item) {
+  const AddToCart = (item) => {
     setCartItem(item + 1);
     console.log("Item added to cart!");
-  }
+  };
 
-  function AddToWishlist(item) {
+  const AddToWishlist = (item) => {
     setWishlistItem(item + 1);
     console.log("Item added to wishlist!");
-  }
+  };
 
-  function DeleteProduct(event) {
+  const DeleteProduct = (event) => {
     console.log("clicked");
     console.log(event);
 
@@ -134,10 +134,10 @@ export default function App() {
         return product;
       }
     };
-    const result = productsData.filter(filterProduct);
+    const result = data.filter(filterProduct);
     setData(result);
     console.log("Item deleted!");
-  }
+  };
 
   let currentPage;
   if (page === "Landing Page") {
@@ -152,19 +152,21 @@ export default function App() {
       currentPage = (
         <HomePage
           backToLandingPage={backToLandingPage}
+          showHomePage={showHomePage}
           cartTotal={cartItem}
           setCartItem={setCartItem}
           wishlistTotal={wishlistItem}
           setWishlistItem={setWishlistItem}
           items={data}
+          data={data}
           showProductOverviewPage={showProductOverviewPage}
-          AddToCart={(event) => AddToCart(cartItem)}
+          AddToCart={(event) => AddToCart(event)}
           AddToWishlist={(event) => AddToWishlist(wishlistItem)}
           DeleteProduct={(event) => DeleteProduct(event)}
         />
       );
     } else if (page === "Overview Product Page") {
-      currentPage = <ProductOverviewPage />;
+      currentPage = <ProductOverviewPage showHomePage={showHomePage} />;
     } else {
       currentPage = <div>ERROR!</div>;
     }
@@ -198,26 +200,5 @@ export default function App() {
   //   }
   // }, []);
 
-  return (
-    <div className="App">
-      {/* <NavbarComp
-        cartTotal={cartItem}
-        setCartItem={setCartItem}
-        wishlistTotal={wishlistItem}
-        setWishlistItem={setWishlistItem}
-      />
-      <Categories />
-      <h1 id="heading">Items</h1>
-
-      <LikedItems
-        items={data}
-        OverviewProduct={(event) => OverviewProduct(event)}
-        AddToCart={(event) => AddToCart(cartItem)}
-        AddToWishlist={(event) => AddToWishlist(wishlistItem)}
-        DeleteProduct={(event) => DeleteProduct(event)}
-      />
-      <Footer /> */}
-      {currentPage}
-    </div>
-  );
+  return <div className="App">{currentPage}</div>;
 }
