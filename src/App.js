@@ -70,7 +70,6 @@ export default function App() {
     currentPage = (
       <LandingPage
         showHomePage={showHomePage}
-        showProductOverviewPage={showProductOverviewPage}
       />
     );
   } else {

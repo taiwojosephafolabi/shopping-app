@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 
-function LandingPage({ showHomePage, showProductOverviewPage }) {
+function LandingPage({ showHomePage }) {
   return (
     <div className="landing-page">
       <span className="landing-page-items">
