@@ -14,7 +14,7 @@ function HomePage({
   cartTotal,
   wishlistItem,
   setWishlistItem,
-  OverviewProduct,
+  showProductOverviewPage,
   AddToCart,
   AddToWishlist,
   DeleteProduct,
@@ -41,7 +41,7 @@ function HomePage({
         items={data}
         data={data}
         cartTotal={cartItem}
-        OverviewProduct={(event) => OverviewProduct(event)}
+        showProductOverviewPage={(event) => showProductOverviewPage(event)}
         AddToCart={(event) => AddToCart(cartTotal)}
         wishlistTotal={wishlistItem}
         AddToWishlist={(event) => AddToWishlist(wishlistItem)}

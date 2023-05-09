@@ -157,7 +157,6 @@ export default function App() {
           setCartItem={setCartItem}
           wishlistTotal={wishlistItem}
           setWishlistItem={setWishlistItem}
-          items={data}
           data={data}
           showProductOverviewPage={showProductOverviewPage}
           AddToCart={(event) => AddToCart(event)}

@@ -7,7 +7,7 @@ import DeleteButton from "./DeleteButton";
 function Products({
   items,
   data,
-  OverviewProduct,
+  showProductOverviewPage,
   AddToWishlist,
   AddToCart,
   DeleteProduct,
@@ -21,7 +21,7 @@ function Products({
             <img className="image" src={data.image} alt={data.name} />
             <h6> Added on: {data.addedDate}</h6>
             <span className="button-container">
-              <OverviewButton OverviewProduct={OverviewProduct} />
+              <OverviewButton showProductOverviewPage={showProductOverviewPage} />
               <WishlistButton AddToWishlist={AddToWishlist} />
               <CartButton AddToCart={AddToCart} />
               <DeleteButton
