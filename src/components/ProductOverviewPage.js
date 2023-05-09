@@ -3,7 +3,13 @@ import NavbarComp from "./NavbarComp";
 import Categories from "./Categories";
 
 function ProductOverviewPage({
-   backToLandingPage, showHomePage, wishlistItem, setWishlistItem, cartItem, setCartItem }) {
+  backToLandingPage,
+  showHomePage,
+  wishlistItem,
+  setWishlistItem,
+  cartItem,
+  setCartItem,
+}) {
   return (
     <div className="App">
       <NavbarComp
@@ -14,9 +20,12 @@ function ProductOverviewPage({
         cartItem={cartItem}
         setCartItem={setCartItem}
       />
-      
+
       <Categories />
       <h1 className="heading">Product Overview</h1>
+      <button type="button" className="back-btn" onClick={() => showHomePage()}>
+        Back to Home
+      </button>
     </div>
   );
 }
