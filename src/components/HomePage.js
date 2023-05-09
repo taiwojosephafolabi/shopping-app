@@ -7,7 +7,8 @@ import Products from "./Products";
 function HomePage({
   showHomePage,
   backToLandingPage,
-  items,
+  search,
+  setSearch,
   data,
   cartItem,
   setCartItem,
@@ -25,6 +26,8 @@ function HomePage({
       <NavbarComp
         backToLandingPage={backToLandingPage}
         showHomePage={showHomePage}
+        search={search}
+        setSearch={setSearch}
         wishlistItem={wishlistItem}
         setWishlistItem={setWishlistItem}
         cartItem={cartItem}
@@ -40,6 +43,7 @@ function HomePage({
       <Products
         showProductOverviewPage={(event) => showProductOverviewPage(event)}
         wishlistItem={wishlistItem}
+        search={search}
         cartItem={cartItem}
         cartTotal={cartTotal}
         items={data}

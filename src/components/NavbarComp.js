@@ -12,6 +12,9 @@ function BasicExample({
   backToLandingPage,
   showHomePage,
   
+  search,
+  setSearch,
+
   wishlistItem,
   setWishlistItem,
   AddToWishlist,
@@ -49,6 +52,7 @@ function BasicExample({
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(event) => setSearch(event.target.value)}
             />
             <Button className="search-button">Search</Button>
           </Form>
