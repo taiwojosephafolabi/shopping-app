@@ -13,13 +13,6 @@ function LandingPage({ showHomePage, showProductOverviewPage }) {
         >
           Browse Items
         </button>
-        <button
-          type="button"
-          className="browse-btn"
-          onClick={() => showProductOverviewPage()}
-        >
-          Overview Product
-        </button>
       </span>
       <Footer />
     </div>
