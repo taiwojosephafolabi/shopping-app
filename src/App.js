@@ -20,6 +20,7 @@ export default function App() {
       name: "Children Of Blood And Bone - Tomi Adeyemi",
       image: "https://m.media-amazon.com/images/I/61Zxem3qIIL._SL500_.jpg",
       addedDate: "25-12-2021",
+      price: 5.35
     },
     {
       id: uuid(),
@@ -27,6 +28,7 @@ export default function App() {
       image:
         "https://1.bp.blogspot.com/-FmVt32Oomxw/T4hDo_cO-sI/AAAAAAAAAD8/4PwXbtvZ4Sc/s1600/gc.jpg",
       addedDate: "12-02-2011",
+      price: 2.75
     },
     {
       id: uuid(),
@@ -34,6 +36,7 @@ export default function App() {
       image:
         "https://m.media-amazon.com/images/I/51--SmriPXL._SX400_BO1,204,203,200_.jpg",
       addedDate: "04-10-2014",
+      price: 5.22
     },
     {
       id: uuid(),
@@ -41,13 +44,15 @@ export default function App() {
       image:
         "https://upload.wikimedia.org/wikipedia/en/c/ce/Eragon_book_cover.png",
       addedDate: "29-04-2006",
+      price: 14.13
     },
     {
       id: uuid(),
-      name: "Diary of a Wimpy Kid",
+      name: "Diary of a Wimpy Kid - Jeff Kinney",
       image:
         "https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1644290789",
       addedDate: "15-09-2009",
+      price: 5.81
     },
     {
       id: uuid(),
@@ -55,6 +60,7 @@ export default function App() {
       image:
         "https://cdn.waterstones.com/bookjackets/large/9781/5291/9781529118544.jpg",
       addedDate: "06-09-2019",
+      price: 9.85
     },
     {
       id: uuid(),
@@ -62,12 +68,14 @@ export default function App() {
       image:
         "https://i1.adis.ws/i/canon/eos-m50-mark-ii_range-page_be49ca9dbc354c03a09cdd0fd898d92a",
       addedDate: "11-01-2023",
+      price: 629
     },
     {
       id: uuid(),
       name: "DJI Osmo Mobile 3",
       image: "https://m.media-amazon.com/images/I/61CB0Ey932L._AC_SL1100_.jpg",
       addedDate: "30-10-2022",
+      price: 95
     },
     {
       id: uuid(),
@@ -75,6 +83,7 @@ export default function App() {
       image:
         "https://media.4rgos.it/i/Argos/8464253_R_Z001A?w=1500&h=880&qlt=70&fmt=webp",
       addedDate: "03-05-2021",
+      price: 111.18
     },
     {
       id: uuid(),
@@ -82,19 +91,22 @@ export default function App() {
       image:
         "https://images.samsung.com/is/image/samsung/p6pim/uk/2302/gallery/uk-galaxy-s23-s918-447009-sm-s918bzadeub-534886905?$1300_1038_PNG$",
       addedDate: "17-04-2023",
+      price: 1399
     },
     {
       id: uuid(),
-      name: " LG 34'' 21:9 UltraWide™ Full HD IPS Monitor with AMD FreeSync™",
+      name: "LG 34'' 21:9 UltraWide™ Full HD IPS Monitor with AMD FreeSync™",
       image:
         "https://www.lg.com/uk/images/monitors/md07560208/gallery/D-01.jpg",
       addedDate: "21-07-2019",
+      price: 304.38
     },
     {
       id: uuid(),
       name: "Neewer Portable 56 inches Camera Tripod",
       image: "https://m.media-amazon.com/images/I/71k3mWChFtL._AC_SL1500_.jpg",
       addedDate: "15-02-2020",
+      price: 56.99
     },
   ];
 
@@ -115,14 +127,14 @@ export default function App() {
     setPage("Overview Product Page");
   };
 
-  const AddToCart = (item) => {
-    setCartItem(item + 1);
-    console.log("Item added to cart!");
-  };
-
   const AddToWishlist = (item) => {
     setWishlistItem(item + 1);
     console.log("Item added to wishlist!");
+  };
+  
+  const AddToCart = (item) => {
+    setCartItem(item + 1);
+    console.log("Item added to cart!");
   };
 
   const DeleteProduct = (event) => {
@@ -153,19 +165,34 @@ export default function App() {
         <HomePage
           backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
-          cartTotal={cartItem}
-          setCartItem={setCartItem}
-          wishlistTotal={wishlistItem}
+          wishlistItem={wishlistItem}
           setWishlistItem={setWishlistItem}
+          cartItem={cartItem}
+          setCartItem={setCartItem}
           data={data}
+          items={data}
           showProductOverviewPage={showProductOverviewPage}
-          AddToCart={(event) => AddToCart(event)}
+          AddToCart={(event) => AddToCart(cartItem)}
           AddToWishlist={(event) => AddToWishlist(wishlistItem)}
           DeleteProduct={(event) => DeleteProduct(event)}
         />
       );
     } else if (page === "Overview Product Page") {
-      currentPage = <ProductOverviewPage showHomePage={showHomePage} />;
+      currentPage = (
+        <ProductOverviewPage
+          backToLandingPage={backToLandingPage}
+          showHomePage={showHomePage}
+          wishlistItem={wishlistItem}
+          setWishlistItem={setWishlistItem}
+          cartItem={cartItem}
+          setCartItem={setCartItem}
+          data={data}
+          items={data}
+          AddToCart={(event) => AddToCart(cartItem)}
+          AddToWishlist={(event) => AddToWishlist(wishlistItem)}
+          DeleteProduct={(event) => DeleteProduct(event)}
+        />
+      );
     } else {
       currentPage = <div>ERROR!</div>;
     }

@@ -9,11 +9,13 @@ import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 
 function BasicExample({
-  showHomePage,
   backToLandingPage,
+  showHomePage,
+  
   wishlistItem,
   setWishlistItem,
   AddToWishlist,
+  
   cartItem,
   setCartItem,
   AddToCart
@@ -50,12 +52,12 @@ function BasicExample({
           </Form>
         </Navbar.Collapse>
         <Wishlist
-          wishlistTotal={wishlistItem}
+          wishlistItem={wishlistItem}
           setWishlistItem={setWishlistItem}
           AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         />
         <Cart
-          cartTotal={cartItem}
+          cartItem={cartItem}
           setCartItem={setCartItem}
           AddToCart={(event) => AddToCart(event)}
 
