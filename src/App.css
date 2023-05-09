@@ -98,7 +98,9 @@
   border: 2px solid black;
   background-color: black;
   border-radius: 50%;
-  width: 25px;
+  width: min-content;
+  height: auto;
+  padding: 2px 5px;
 }
 
 .d-flex .search-button {

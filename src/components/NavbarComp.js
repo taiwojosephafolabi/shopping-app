@@ -18,6 +18,8 @@ function BasicExample({
   
   cartItem,
   setCartItem,
+  cartTotal,
+  setCartTotal,
   AddToCart
 }) {
   return (
@@ -59,6 +61,8 @@ function BasicExample({
         <Cart
           cartItem={cartItem}
           setCartItem={setCartItem}
+          cartTotal={cartTotal}
+          setCartTotal={setCartTotal}
           AddToCart={(event) => AddToCart(event)}
 
         />

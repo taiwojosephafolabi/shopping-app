@@ -9,6 +9,8 @@ function ProductOverviewPage({
   setWishlistItem,
   cartItem,
   setCartItem,
+  cartTotal,
+  setCartTotal
 }) {
   return (
     <div className="App">
@@ -19,6 +21,8 @@ function ProductOverviewPage({
         setWishlistItem={setWishlistItem}
         cartItem={cartItem}
         setCartItem={setCartItem}
+        cartTotal={cartTotal}
+        setCartTotal={setCartTotal}
       />
 
       <Categories />

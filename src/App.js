@@ -40,7 +40,7 @@ export default function App() {
     },
     {
       id: uuid(),
-      name: "Eragon - Chrisopher Paolini",
+      name: "Eragon - Christopher Paolini",
       image:
         "https://upload.wikimedia.org/wikipedia/en/c/ce/Eragon_book_cover.png",
       addedDate: "29-04-2006",
@@ -111,9 +111,11 @@ export default function App() {
   ];
 
   const [page, setPage] = useState("Landing Page");
-  const [cartItem, setCartItem] = useState(0);
   const [wishlistItem, setWishlistItem] = useState(0);
+  const [cartItem, setCartItem] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
   const [data, setData] = useState(productsData);
+  const [cartData, setCartData] = useState([]);
 
   const showHomePage = () => {
     setPage("Home Page");
@@ -134,8 +136,33 @@ export default function App() {
 
   const AddToCart = (item) => {
     setCartItem(item + 1);
+    if(cartData.includes(item)){
+      item.quantity += 1;
+    } else {
+      // item.quantity = 1;
+      cartData.push(item);
+      setCartData(cartData);
+      console.log("CART: ", cartData)
+    }
+    // setCartTotal(item + data.reduce((prev, cur) => {
+    //   return prev + cur.price
+    // }), 0);
+    // console.log({setCartTotal});
     console.log("Item added to cart!");
   };
+
+
+// const addToCart = (newFood) => {
+//     if (cart.includes(newFood)) {
+//       newFood.quantity += 1;
+//     } else {
+//       newFood.quantity = 1;
+//       let newCart = cart.slice();
+//       newCart.push(newFood);
+//       setCart(newCart);
+//     }
+//   };
+
 
   const DeleteProduct = (event) => {
     console.log("clicked");
@@ -169,6 +196,8 @@ export default function App() {
           setWishlistItem={setWishlistItem}
           cartItem={cartItem}
           setCartItem={setCartItem}
+          cartTotal={cartTotal}
+          setCartTotal={setCartTotal}
           data={data}
           items={data}
           showProductOverviewPage={showProductOverviewPage}
@@ -186,6 +215,8 @@ export default function App() {
           setWishlistItem={setWishlistItem}
           cartItem={cartItem}
           setCartItem={setCartItem}
+          cartTotal={cartTotal}
+          setCartTotal={setCartTotal}
           data={data}
           items={data}
           AddToCart={(event) => AddToCart(cartItem)}

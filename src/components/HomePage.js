@@ -12,6 +12,7 @@ function HomePage({
   cartItem,
   setCartItem,
   cartTotal,
+  setCartTotal,
   wishlistItem,
   setWishlistItem,
   showProductOverviewPage,
@@ -19,18 +20,17 @@ function HomePage({
   AddToWishlist,
   DeleteProduct,
 }) {
-
-  console.log("CHECK 3: ", data);
-
   return (
     <div className="App">
       <NavbarComp
-        cartItem={cartItem}
-        setCartItem={setCartItem}
-        wishlistItem={wishlistItem}
-        setWishlistItem={setWishlistItem}
         backToLandingPage={backToLandingPage}
         showHomePage={showHomePage}
+        wishlistItem={wishlistItem}
+        setWishlistItem={setWishlistItem}
+        cartItem={cartItem}
+        setCartItem={setCartItem}
+        cartTotal={cartTotal}
+        setCartTotal={setCartTotal}
       />
 
       <Categories />
@@ -38,12 +38,13 @@ function HomePage({
       <h1 className="heading">Items</h1>
 
       <Products
+        showProductOverviewPage={(event) => showProductOverviewPage(event)}
+        wishlistItem={wishlistItem}
+        cartItem={cartItem}
+        cartTotal={cartTotal}
         items={data}
         data={data}
-        cartItem={cartItem}
-        showProductOverviewPage={(event) => showProductOverviewPage(event)}
         AddToCart={(event) => AddToCart(cartItem)}
-        wishlistItem={wishlistItem}
         AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         DeleteProduct={(event) => DeleteProduct(event)}
       />
