@@ -2,7 +2,7 @@ function DeleteButton({ DeleteProduct }) {
   return (
     <div>
       <button
-        className="delete-product-btn"
+        className="button"
         onClick={(event) => DeleteProduct(event)}
       >
         Delete Product

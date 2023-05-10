@@ -189,73 +189,19 @@
   justify-content: center;
 }
 
-.overview-btn {
+.button {
   color: black;
   background-color: white;
   border: 2px solid antiquewhite;
   transition-duration: 0.4s;
 }
 
-.overview-btn:hover {
+.button:hover {
   color: white;
   background-color: antiquewhite;
   border: 2px solid antiquewhite;
 }
-.overview-btn:focus {
-  color: white;
-  background-color: #ffe4c0;
-  border: 2px solid #ffe4c0;
-}
-
-.add-to-cart-btn {
-  color: black;
-  background-color: white;
-  border: 2px solid antiquewhite;
-  transition-duration: 0.4s;
-}
-
-.add-to-cart-btn:hover {
-  color: white;
-  background-color: antiquewhite;
-  border: 2px solid antiquewhite;
-}
-.add-to-cart-btn:focus {
-  color: white;
-  background-color: #ffe4c0;
-  border: 2px solid #ffe4c0;
-}
-
-.add-to-wishlist-btn {
-  color: black;
-  background-color: white;
-  border: 2px solid antiquewhite;
-  transition-duration: 0.4s;
-}
-
-.add-to-wishlist-btn:hover {
-  color: white;
-  background-color: antiquewhite;
-  border: 2px solid antiquewhite;
-}
-.add-to-wishlist-btn:focus {
-  color: white;
-  background-color: #ffe4c0;
-  border: 2px solid #ffe4c0;
-}
-
-.delete-product-btn {
-  color: black;
-  background-color: white;
-  border: 2px solid antiquewhite;
-  transition-duration: 0.4s;
-}
-
-.delete-product-btn:hover {
-  color: white;
-  background-color: antiquewhite;
-  border: 2px solid antiquewhite;
-}
-.delete-product-btn:focus {
+.button:focus {
   color: white;
   background-color: #ffe4c0;
   border: 2px solid #ffe4c0;

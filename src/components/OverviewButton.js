@@ -4,7 +4,7 @@ function OverviewButton({showProductOverviewPage}) {
   return (
     <div>
       <button
-        className="overview-btn"
+        className="button"
         onClick={(event) => showProductOverviewPage(event)}
       >
         Overview
