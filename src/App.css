@@ -1,3 +1,7 @@
+* {
+  border: red dashed 1px;
+}
+
 .App {
   background-color: white;
   width: 100vw;
@@ -51,7 +55,7 @@
 .navbar {
   display: flex;
   justify-content: center;
-  margin-bottom: 0px;
+  padding: 2px;
 }
 
 .navbar .wishlist {
@@ -146,6 +150,7 @@
   justify-content: center;
   margin: 10px, 0px 0px 0px;
   flex-wrap: wrap;
+  padding: 0px;
 }
 
 .liked-item {
@@ -164,6 +169,7 @@
 
 .liked-item h4 {
   text-align: center;
+  height: max-content;
 }
 
 .liked-item h6 {
@@ -178,8 +184,9 @@
 .image {
   width: auto;
   height: 120px;
-  padding-right: 15px;
-  margin: 0px auto;
+  
+  margin: 2px auto;
+  text-align: center;
 }
 
 .button-container {
