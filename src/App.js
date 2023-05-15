@@ -13,20 +13,26 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [wishlistItem, setWishlistItem] = useState(0);
   const [cartItem, setCartItem] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const [data, setData] = useState(productsData);
   const [cartData, setCartData] = useState([]);
+  const [overviewData, setOverviewData] = useState();
 
   const showHomePage = () => {
     setPage("Home Page");
+
   };
 
   const backToLandingPage = () => {
     setPage("Landing Page");
+    // clear overviewData state to nothing
   };
 
-  const showProductOverviewPage = () => {
+  const showProductOverviewPage = (item) => {
     setPage("Overview Product Page");
+    console.log("OVERVIEW ITEM: ", item);
+    // get id
+    // pass overviewData data to productOverviewPage
   };
 
   const AddToWishlist = (item) => {
@@ -35,20 +41,12 @@ export default function App() {
   };
 
   const AddToCart = (item) => {
-    setCartItem(item + 1);
-    if(cartData.includes(item)){
-      item.quantity += 1;
-    } else {
-      // item.quantity = 1;
-      cartData.push(item);
-      setCartData(cartData);
-      console.log("CART: ", cartData)
-    }
-    // setCartTotal(item + data.reduce((prev, cur) => {
-    //   return prev + cur.price
-    // }), 0);
-    // console.log({setCartTotal});
+    console.log("ITEM ADDED TO CART: ", item);
+    // setCartData(cartData.push(item));
+    setTotalPrice(totalPrice + item.price);
+    setCartItem(cartItem + 1);
     console.log("Item added to cart!");
+    console.log("CART:", cartData);
   };
 
   const DeleteProduct = (event) => {
@@ -84,12 +82,12 @@ export default function App() {
           setWishlistItem={setWishlistItem}
           cartItem={cartItem}
           setCartItem={setCartItem}
-          cartTotal={cartTotal}
-          setCartTotal={setCartTotal}
+          cartTotal={totalPrice}
+          setCartTotal={setTotalPrice}
           data={data}
           items={data}
           showProductOverviewPage={showProductOverviewPage}
-          AddToCart={(event) => AddToCart(cartItem)}
+          AddToCart={AddToCart}
           AddToWishlist={(event) => AddToWishlist(wishlistItem)}
           DeleteProduct={(event) => DeleteProduct(event)}
         />
@@ -97,25 +95,12 @@ export default function App() {
     } else if (page === "Overview Product Page") {
       currentPage = (
         <ProductOverviewPage
-          backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
-          search={search}
-          setSearch={setSearch}
-          wishlistItem={wishlistItem}
-          setWishlistItem={setWishlistItem}
-          cartItem={cartItem}
-          setCartItem={setCartItem}
-          cartTotal={cartTotal}
-          setCartTotal={setCartTotal}
-          data={data}
-          items={data}
-          AddToCart={(event) => AddToCart(cartItem)}
-          AddToWishlist={(event) => AddToWishlist(wishlistItem)}
-          DeleteProduct={(event) => DeleteProduct(event)}
+          overviewData={overviewData}
         />
       );
     } else {
-      currentPage = <div>ERROR!</div>;
+      currentPage = <div>ERROR! PAGE NOT FOUND</div>;
     }
   }
   return <div className="App">{currentPage}</div>;

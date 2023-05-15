@@ -1,13 +1,11 @@
-* {
-  border: red dashed 1px;
-}
-
 .App {
   background-color: white;
   width: 100vw;
   padding: 0px;
   margin: 5px;
 }
+
+/* Add scroll */
 
 .landing-page {
   display: flex;
@@ -184,7 +182,6 @@
 .image {
   width: auto;
   height: 120px;
-  
   margin: 2px auto;
   text-align: center;
 }
@@ -208,8 +205,23 @@
   background-color: antiquewhite;
   border: 2px solid antiquewhite;
 }
+
 .button:focus {
   color: white;
   background-color: #ffe4c0;
   border: 2px solid #ffe4c0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: solid antiquewhite 2px;
+  margin: 20px 5% 0px 5%;
+  bottom: 0px;
+}
+
+.footer a {
+  color: grey;
+  text-decoration: none;
 }

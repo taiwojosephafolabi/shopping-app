@@ -29,13 +29,11 @@ function Products({
               <h5> Price: £{data.price}</h5>
               <span className="button-container">
                 <OverviewButton
-                  showProductOverviewPage={showProductOverviewPage}
+                  showProductOverviewPage={() => showProductOverviewPage(data)}
                 />
                 <WishlistButton AddToWishlist={AddToWishlist} />
-                <CartButton AddToCart={AddToCart} />
-                <DeleteButton
-                  DeleteProduct={(event) => DeleteProduct(data.id)}
-                />
+                <CartButton AddToCart={() => AddToCart(data)} />
+                <DeleteButton DeleteProduct={() => DeleteProduct(data.id)} />
               </span>
             </div>
           );

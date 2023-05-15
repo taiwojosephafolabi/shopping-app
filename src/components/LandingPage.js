@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
 
 function LandingPage({ showHomePage }) {
   return (
@@ -14,7 +13,6 @@ function LandingPage({ showHomePage }) {
           Browse Items
         </button>
       </span>
-      <Footer />
     </div>
   );
 }

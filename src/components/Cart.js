@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { BsFillCartFill } from "react-icons/bs";
 
-function Cart({ cartItem, setCartItem, cartTotal, setCartTotal }) {
+function Cart({ cartItem, setCartItem, cartTotal }) {
   function handleCartItem() {
     setCartItem(0);
-    console.log("Cart Total Reset Button CLICKED")
+    console.log("Cart Total Reset Button CLICKED");
   }
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,14 +11,12 @@ import Wishlist from "./Wishlist";
 function BasicExample({
   backToLandingPage,
   showHomePage,
-  
-  search,
   setSearch,
 
   wishlistItem,
   setWishlistItem,
   AddToWishlist,
-  
+
   cartItem,
   setCartItem,
   cartTotal,
@@ -35,16 +33,8 @@ function BasicExample({
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={() => showHomePage()}>Home</Nav.Link>
-            <Nav.Link href="#link">Store</Nav.Link>
-            <NavDropdown title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Orders</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Liked Items
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Settings</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#wishlist">Wishlist</Nav.Link>
+            <Nav.Link href="#cart">Cart</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -54,21 +44,21 @@ function BasicExample({
               aria-label="Search"
               onChange={(event) => setSearch(event.target.value)}
             />
-            <Button className="search-button">Search</Button>
           </Form>
         </Navbar.Collapse>
+
         <Wishlist
           wishlistItem={wishlistItem}
           setWishlistItem={setWishlistItem}
           AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         />
+
         <Cart
           cartItem={cartItem}
           setCartItem={setCartItem}
           cartTotal={cartTotal}
           setCartTotal={setCartTotal}
           AddToCart={(event) => AddToCart(event)}
-
         />
       </Container>
     </Navbar>

@@ -1,8 +1,8 @@
 import React from "react";
-import NavbarComp from "./NavbarComp";
-import Footer from "./Footer";
+import Navbar from "./Navbar";
 import Categories from "./Categories";
 import Products from "./Products";
+import Footer from "./Footer";
 
 function HomePage({
   showHomePage,
@@ -23,7 +23,7 @@ function HomePage({
 }) {
   return (
     <div className="App">
-      <NavbarComp
+      <Navbar
         backToLandingPage={backToLandingPage}
         showHomePage={showHomePage}
         search={search}
@@ -48,7 +48,7 @@ function HomePage({
         cartTotal={cartTotal}
         items={data}
         data={data}
-        AddToCart={(event) => AddToCart(cartItem)}
+        AddToCart={AddToCart}
         AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         DeleteProduct={(event) => DeleteProduct(event)}
       />

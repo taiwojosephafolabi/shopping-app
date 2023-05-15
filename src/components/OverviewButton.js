@@ -1,6 +1,6 @@
 import React from "react";
 
-function OverviewButton({showProductOverviewPage}) {
+function OverviewButton({ showProductOverviewPage }) {
   return (
     <div>
       <button
