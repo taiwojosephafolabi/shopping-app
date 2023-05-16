@@ -7,6 +7,8 @@ import Footer from "./Footer";
 function HomePage({
   showHomePage,
   backToLandingPage,
+  showWishlistPage,
+  showCartPage,
   search,
   setSearch,
   data,
@@ -26,6 +28,8 @@ function HomePage({
       <Navbar
         backToLandingPage={backToLandingPage}
         showHomePage={showHomePage}
+        showWishlistPage={showWishlistPage}
+        showCartPage={showCartPage}
         search={search}
         setSearch={setSearch}
         wishlistItem={wishlistItem}

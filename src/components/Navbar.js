@@ -9,6 +9,8 @@ import Wishlist from "./Wishlist";
 function BasicExample({
   backToLandingPage,
   showHomePage,
+  showWishlistPage,
+  showCartPage,
   setSearch,
 
   wishlistItem,
@@ -19,7 +21,7 @@ function BasicExample({
   setCartItem,
   cartTotal,
   setCartTotal,
-  AddToCart
+  AddToCart,
 }) {
   return (
     <Navbar expand="lg">
@@ -31,8 +33,8 @@ function BasicExample({
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={() => showHomePage()}>Home</Nav.Link>
-            <Nav.Link href="#wishlist">Wishlist</Nav.Link>
-            <Nav.Link href="#cart">Cart</Nav.Link>
+            <Nav.Link onClick={() => showWishlistPage()}>Wishlist</Nav.Link>
+            <Nav.Link onClick={() => showCartPage()}>Cart</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -46,12 +48,14 @@ function BasicExample({
         </Navbar.Collapse>
 
         <Wishlist
+          showWishlistPage={showWishlistPage}
           wishlistItem={wishlistItem}
           setWishlistItem={setWishlistItem}
           AddToWishlist={(event) => AddToWishlist(wishlistItem)}
         />
 
         <Cart
+          showCartPage={showCartPage}
           cartItem={cartItem}
           setCartItem={setCartItem}
           cartTotal={cartTotal}

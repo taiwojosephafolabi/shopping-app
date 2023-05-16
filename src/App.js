@@ -4,13 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import ProductOverviewPage from "./components/ProductOverviewPage";
+import WishlistPage from "./components/WishlistPage";
+import CartPage from "./components/CartPage";
 
-import {productsData} from "./data/data"
+import { productsData } from "./data/data";
 import "./App.css";
 
 export default function App() {
   const [page, setPage] = useState("Landing Page");
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [wishlistItem, setWishlistItem] = useState(0);
   const [cartItem, setCartItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -20,7 +22,6 @@ export default function App() {
 
   const showHomePage = () => {
     setPage("Home Page");
-
   };
 
   const backToLandingPage = () => {
@@ -33,6 +34,14 @@ export default function App() {
     console.log("OVERVIEW ITEM: ", item);
     // get id
     // pass overviewData data to productOverviewPage
+  };
+
+  const showWishlistPage = () => {
+    setPage("Wishlist Page");
+  };
+
+  const showCartPage = () => {
+    setPage("Cart Page");
   };
 
   const AddToWishlist = (item) => {
@@ -65,17 +74,15 @@ export default function App() {
 
   let currentPage;
   if (page === "Landing Page") {
-    currentPage = (
-      <LandingPage
-        showHomePage={showHomePage}
-      />
-    );
+    currentPage = <LandingPage showHomePage={showHomePage} />;
   } else {
     if (page === "Home Page") {
       currentPage = (
         <HomePage
           backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
+          showWishlistPage={showWishlistPage}
+          showCartPage={showCartPage}
           search={search}
           setSearch={setSearch}
           wishlistItem={wishlistItem}
@@ -97,6 +104,20 @@ export default function App() {
         <ProductOverviewPage
           showHomePage={showHomePage}
           overviewData={overviewData}
+        />
+      );
+    } else if (page === "Cart Page") {
+      currentPage = (
+        <CartPage
+          backToLandingPage={backToLandingPage}
+          showHomePage={showHomePage}
+        />
+      );
+    } else if (page === "Wishlist Page") {
+      currentPage = (
+        <WishlistPage
+          backToLandingPage={backToLandingPage}
+          showHomePage={showHomePage}
         />
       );
     } else {
