@@ -31,7 +31,7 @@ function Products({
                 <OverviewButton
                   showProductOverviewPage={() => showProductOverviewPage(data)}
                 />
-                <WishlistButton AddToWishlist={AddToWishlist} />
+                <WishlistButton AddToWishlist={() => AddToWishlist(data)} />
                 <CartButton AddToCart={() => AddToCart(data)} />
                 <DeleteButton DeleteProduct={() => DeleteProduct(data.id)} />
               </span>

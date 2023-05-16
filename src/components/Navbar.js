@@ -13,14 +13,14 @@ function BasicExample({
   showCartPage,
   setSearch,
 
-  wishlistItem,
-  setWishlistItem,
+  wishlistTotalItems,
+  setWishlistTotalItems,
   AddToWishlist,
 
-  cartItem,
-  setCartItem,
   cartTotal,
   setCartTotal,
+  cartTotalPrice,
+  setCartTotalPrice,
   AddToCart,
 }) {
   return (
@@ -49,18 +49,18 @@ function BasicExample({
 
         <Wishlist
           showWishlistPage={showWishlistPage}
-          wishlistItem={wishlistItem}
-          setWishlistItem={setWishlistItem}
-          AddToWishlist={(event) => AddToWishlist(wishlistItem)}
+          wishlistTotalItems={wishlistTotalItems}
+          setWishlistTotalItems={setWishlistTotalItems}
+          AddToWishlist={() => AddToWishlist()}
         />
 
         <Cart
           showCartPage={showCartPage}
-          cartItem={cartItem}
-          setCartItem={setCartItem}
           cartTotal={cartTotal}
           setCartTotal={setCartTotal}
-          AddToCart={(event) => AddToCart(event)}
+          cartTotalPrice={cartTotalPrice}
+          setCartTotalPrice={setCartTotalPrice}
+          AddToCart={() => AddToCart()}
         />
       </Container>
     </Navbar>

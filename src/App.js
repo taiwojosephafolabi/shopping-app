@@ -13,15 +13,18 @@ import "./App.css";
 export default function App() {
   const [page, setPage] = useState("Landing Page");
   const [search, setSearch] = useState("");
-  const [wishlistItem, setWishlistItem] = useState(0);
-  const [cartItem, setCartItem] = useState(0);
+  const [wishlistTotalItems, setWishlistTotalItems] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+
   const [data, setData] = useState(productsData);
   const [cartData, setCartData] = useState([]);
-  const [overviewData, setOverviewData] = useState();
+  const [wishlistData, setWishlistData] = useState([]);
+  const [overviewData, setOverviewData] = useState([]);
 
   const showHomePage = () => {
     setPage("Home Page");
+    overviewData.pop();
   };
 
   const backToLandingPage = () => {
@@ -31,7 +34,12 @@ export default function App() {
 
   const showProductOverviewPage = (item) => {
     setPage("Overview Product Page");
+    // State did not work - CHECK
+    // setOverviewData(item);
+    overviewData.push(item);
     console.log("OVERVIEW ITEM: ", item);
+    console.log("PRODUCT: ", overviewData);
+
     // get id
     // pass overviewData data to productOverviewPage
   };
@@ -45,16 +53,21 @@ export default function App() {
   };
 
   const AddToWishlist = (item) => {
-    setWishlistItem(item + 1);
-    console.log("Item added to wishlist!");
+    // State did not work - CHECK
+    // setWishlistData(item);
+    wishlistData.push(item);
+    console.log("ITEM ADDED TO WISHLIST: ", item);
+    setWishlistTotalItems(wishlistTotalItems + 1);
+    console.log("WISHLIST:", wishlistData);
   };
 
   const AddToCart = (item) => {
+    // State did not work - CHECK
+    // setCartData(item);
+    cartData.push(item);
     console.log("ITEM ADDED TO CART: ", item);
-    // setCartData(cartData.push(item));
+    setCartTotal(cartTotal + 1);
     setTotalPrice(totalPrice + item.price);
-    setCartItem(cartItem + 1);
-    console.log("Item added to cart!");
     console.log("CART:", cartData);
   };
 
@@ -85,18 +98,17 @@ export default function App() {
           showCartPage={showCartPage}
           search={search}
           setSearch={setSearch}
-          wishlistItem={wishlistItem}
-          setWishlistItem={setWishlistItem}
-          cartItem={cartItem}
-          setCartItem={setCartItem}
-          cartTotal={totalPrice}
-          setCartTotal={setTotalPrice}
+          wishlistTotalItems={wishlistTotalItems}
+          setWishlistTotalItems={setWishlistTotalItems}
+          cartTotal={cartTotal}
+          setCartTotal={setCartTotal}
+          cartTotalPrice={totalPrice}
+          setCartTotalPrice={setTotalPrice}
           data={data}
-          items={data}
           showProductOverviewPage={showProductOverviewPage}
           AddToCart={AddToCart}
-          AddToWishlist={(event) => AddToWishlist(wishlistItem)}
-          DeleteProduct={(event) => DeleteProduct(event)}
+          AddToWishlist={AddToWishlist}
+          DeleteProduct={() => DeleteProduct()}
         />
       );
     } else if (page === "Overview Product Page") {
@@ -111,6 +123,7 @@ export default function App() {
         <CartPage
           backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
+          cartData={cartData}
         />
       );
     } else if (page === "Wishlist Page") {
@@ -118,6 +131,7 @@ export default function App() {
         <WishlistPage
           backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
+          wishlistData={wishlistData}
         />
       );
     } else {

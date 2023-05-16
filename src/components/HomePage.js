@@ -9,18 +9,23 @@ function HomePage({
   backToLandingPage,
   showWishlistPage,
   showCartPage,
+  showProductOverviewPage,
+
   search,
   setSearch,
+
   data,
-  cartItem,
-  setCartItem,
+
+  wishlistTotalItems,
+  setWishlistTotalItems,
+  AddToWishlist,
+
   cartTotal,
   setCartTotal,
-  wishlistItem,
-  setWishlistItem,
-  showProductOverviewPage,
+  cartTotalPrice,
+  setCartTotalPrice,
   AddToCart,
-  AddToWishlist,
+
   DeleteProduct,
 }) {
   return (
@@ -32,12 +37,12 @@ function HomePage({
         showCartPage={showCartPage}
         search={search}
         setSearch={setSearch}
-        wishlistItem={wishlistItem}
-        setWishlistItem={setWishlistItem}
-        cartItem={cartItem}
-        setCartItem={setCartItem}
+        wishlistTotalItems={wishlistTotalItems}
+        setWishlistTotalItems={setWishlistTotalItems}
         cartTotal={cartTotal}
         setCartTotal={setCartTotal}
+        cartTotalPrice={cartTotalPrice}
+        setCartTotalPrice={setCartTotalPrice}
       />
 
       <Categories />
@@ -46,15 +51,14 @@ function HomePage({
 
       <Products
         showProductOverviewPage={(event) => showProductOverviewPage(event)}
-        wishlistItem={wishlistItem}
         search={search}
-        cartItem={cartItem}
+        wishlistITotaltems={wishlistTotalItems}
         cartTotal={cartTotal}
-        items={data}
+        cartTotalPrice={cartTotalPrice}
         data={data}
         AddToCart={AddToCart}
-        AddToWishlist={(event) => AddToWishlist(wishlistItem)}
-        DeleteProduct={(event) => DeleteProduct(event)}
+        AddToWishlist={AddToWishlist}
+        DeleteProduct={() => DeleteProduct()}
       />
       <Footer />
     </div>
