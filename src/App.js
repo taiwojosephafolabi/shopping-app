@@ -67,8 +67,12 @@ export default function App() {
     cartData.push(item);
     console.log("ITEM ADDED TO CART: ", item);
     setCartTotal(cartTotal + 1);
-    setTotalPrice(totalPrice + item.price);
+    setTotalPrice(totalPrice + Number(item.price));
     console.log("CART:", cartData);
+    if (page === "Wishlist Page") {
+      // wishlistData.pop(item.id);
+      // setWishlistData(wishlistTotalItems - 1);
+    }
   };
 
   const DeleteProduct = (event) => {
@@ -78,10 +82,16 @@ export default function App() {
     const filterProduct = (product) => {
       if (product.id !== event) {
         return product;
+      } else {
+        setTotalPrice((totalPrice - product.price).toFixed(2));
+        setCartTotal(cartTotal - 1);
       }
     };
-    const result = data.filter(filterProduct);
-    setData(result);
+    const result = cartData.filter(filterProduct);
+    // CHECK
+    cartData.push(result);
+    setCartData(result);
+
     console.log("Item deleted!");
   };
 
@@ -108,7 +118,7 @@ export default function App() {
           showProductOverviewPage={showProductOverviewPage}
           AddToCart={AddToCart}
           AddToWishlist={AddToWishlist}
-          DeleteProduct={() => DeleteProduct()}
+          DeleteProduct={DeleteProduct}
         />
       );
     } else if (page === "Overview Product Page") {
@@ -123,7 +133,10 @@ export default function App() {
         <CartPage
           backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
+          cartTotalPrice={totalPrice}
+          setCartTotalPrice={setTotalPrice}
           cartData={cartData}
+          DeleteProduct={DeleteProduct}
         />
       );
     } else if (page === "Wishlist Page") {
@@ -132,6 +145,8 @@ export default function App() {
           backToLandingPage={backToLandingPage}
           showHomePage={showHomePage}
           wishlistData={wishlistData}
+          AddToCart={AddToCart}
+          DeleteProduct={DeleteProduct}
         />
       );
     } else {

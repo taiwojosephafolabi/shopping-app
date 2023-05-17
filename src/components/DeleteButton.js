@@ -3,7 +3,7 @@ function DeleteButton({ DeleteProduct }) {
     <div>
       <button
         className="button"
-        onClick={(event) => DeleteProduct(event)}
+        onClick={DeleteProduct}
       >
         Delete Product
       </button>
