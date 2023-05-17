@@ -12,11 +12,17 @@ function ProductOverviewPage({ showHomePage, overviewData }) {
       <div className="container">
         {overviewData.map((data, index) => {
           return (
-            <div className="liked-item" key={index}>
+            <div className="product-card2" key={index}>
+              <img
+                className="product-card2-image"
+                src={data.image}
+                alt={data.name}
+              />
+              <div className="product-card2-info">
               <h4> {data.name} </h4>
-              <img className="image" src={data.image} alt={data.name} />
               <h6> Added on: {data.addedDate}</h6>
               <h5> Price: £{data.price}</h5>
+            </div>
             </div>
           );
         })}

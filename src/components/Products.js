@@ -25,7 +25,6 @@ function Products({
             <div className="product-card" key={index}>
               <h4> {data.name} </h4>
               <img className="image" src={data.image} alt={data.name} />
-              <h6> Added on: {data.addedDate}</h6>
               <h5> Price: £{data.price}</h5>
               <span className="button-container">
                 <OverviewButton
