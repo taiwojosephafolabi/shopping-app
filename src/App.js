@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./components/LandingPage";
@@ -24,7 +24,7 @@ export default function App() {
 
   const showHomePage = () => {
     setPage("Home Page");
-    overviewData.pop();
+    setOverviewData([]);
   };
 
   const backToLandingPage = () => {
@@ -36,7 +36,8 @@ export default function App() {
     setPage("Overview Product Page");
     // State did not work - CHECK
     // setOverviewData(item);
-    overviewData.push(item);
+    setOverviewData([...overviewData, item]);
+    // overviewData.push(item);
     console.log("OVERVIEW ITEM: ", item);
     console.log("PRODUCT: ", overviewData);
 
@@ -52,14 +53,22 @@ export default function App() {
     setPage("Cart Page");
   };
 
+  // const wishlists = [];
+
   const AddToWishlist = (item) => {
     // State did not work - CHECK
-    // setWishlistData(item);
-    wishlistData.push(item);
+    // wishlists.push(item);
+    setWishlistData([...wishlistData, item]);
+    
+
+    console.log("ITEMS: ", item);
+    // wishlistData.push(item);
     console.log("ITEM ADDED TO WISHLIST: ", item);
     setWishlistTotalItems(wishlistTotalItems + 1);
     console.log("WISHLIST:", wishlistData);
   };
+
+  console.log("STATE: ", wishlistData);
 
   const AddToCart = (item) => {
     // State did not work - CHECK
