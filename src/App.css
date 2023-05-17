@@ -255,6 +255,7 @@
   flex-direction: row;
   justify-content: space-between;
   border-top: solid antiquewhite 2px;
+  padding-top: 15px;
   margin: 20px 5% 0px 5%;
   bottom: 0px;
 }
