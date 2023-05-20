@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./components/LandingPage";
@@ -59,7 +59,6 @@ export default function App() {
     // State did not work - CHECK
     // wishlists.push(item);
     setWishlistData([...wishlistData, item]);
-    
 
     console.log("ITEMS: ", item);
     // wishlistData.push(item);
@@ -71,16 +70,14 @@ export default function App() {
   console.log("STATE: ", wishlistData);
 
   const AddToCart = (item) => {
-    // State did not work - CHECK
-    // setCartData(item);
-    cartData.push(item);
+    setCartData([...cartData, item]);
     console.log("ITEM ADDED TO CART: ", item);
     setCartTotal(cartTotal + 1);
     setTotalPrice(totalPrice + Number(item.price));
     console.log("CART:", cartData);
     if (page === "Wishlist Page") {
-      // wishlistData.pop(item.id);
-      // setWishlistData(wishlistTotalItems - 1);
+      // setWishlistData([remove(wishlistData.item)]);
+      setWishlistTotalItems(wishlistTotalItems - 1);
     }
   };
 
@@ -94,8 +91,11 @@ export default function App() {
       } else {
         setTotalPrice((totalPrice - product.price).toFixed(2));
         setCartTotal(cartTotal - 1);
-      }
+        setWishlistTotalItems(wishlistTotalItems - 1);
+      };
+        
     };
+
     const result = cartData.filter(filterProduct);
     // CHECK
     cartData.push(result);

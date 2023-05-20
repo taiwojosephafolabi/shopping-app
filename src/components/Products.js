@@ -2,7 +2,6 @@ import React from "react";
 import OverviewButton from "./OverviewButton";
 import CartButton from "./AddToCartButton";
 import WishlistButton from "./AddToWishlistButton";
-import DeleteButton from "./DeleteButton";
 
 function Products({
   showProductOverviewPage,
@@ -10,7 +9,6 @@ function Products({
   data,
   AddToWishlist,
   AddToCart,
-  DeleteProduct,
 }) {
   return (
     <div className="container">
@@ -32,7 +30,6 @@ function Products({
                 />
                 <WishlistButton AddToWishlist={() => AddToWishlist(data)} />
                 <CartButton AddToCart={() => AddToCart(data)} />
-                <DeleteButton DeleteProduct={() => DeleteProduct(data.id)} />
               </span>
             </div>
           );

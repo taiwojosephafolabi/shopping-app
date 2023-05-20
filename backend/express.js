@@ -1,17 +1,20 @@
-import express from 'express';
-import * as dotenv from 'dotenv'
-import { v4 as uuid } from 'uuid';
+import express from "express";
+import * as dotenv from "dotenv";
+import { v4 as uuid } from "uuid";
 
-dotenv.config()
+dotenv.config();
 const app = express();
 
 const productsData = [
   {
-    id: "1",
+    id: 1,
     name: "Children Of Blood And Bone - Tomi Adeyemi",
     image: "https://m.media-amazon.com/images/I/61Zxem3qIIL._SL500_.jpg",
-    addedDate: "25-12-2021",
     price: 5.35,
+    isbn: "978-1-250-17097-2",
+    publicationDate: "06/03/2018",
+    description:
+      "Blood and Bone follows a young girl, Zélie, who lives in Orïsha, a mythical world filled with magic, monarchy, and the problems often associated with them: class discrimination, abuse of power, and violence."
   },
   {
     id: 2,
@@ -87,8 +90,7 @@ const productsData = [
   {
     id: 11,
     name: "LG 34'' 21:9 UltraWide™ Full HD IPS Monitor with AMD FreeSync™",
-    image:
-      "https://www.lg.com/uk/images/monitors/md07560208/gallery/D-01.jpg",
+    image: "https://www.lg.com/uk/images/monitors/md07560208/gallery/D-01.jpg",
     addedDate: "21-07-2019",
     price: 304.38,
   },
@@ -103,57 +105,57 @@ const productsData = [
 
 const basket = [];
 
-
 // Landing Page
-app.get('/', function(req, res) {
+app.get("/", function (req, res) {
   res.send("Hello, world!");
 });
 
 // Home Page & Display items
-app.get('/home', function(req, res) {
+app.get("/home", function (req, res) {
   res.send(productsData);
 });
 
 // Overview Product
-app.get('/overview/:id', function(req, res) {
+app.get("/overview/:id", function (req, res) {
   const overviewId = req.params.id;
-  const overviewItem = productsData.find(product => product.id === Number(overviewId))
+  const overviewItem = productsData.find(
+    (product) => product.id === Number(overviewId)
+  );
   console.log(typeof overviewId);
   console.log("ITEM: ", overviewItem);
-  res.send(overviewItem)
+  res.send(overviewItem);
 });
 
 // Add to Basket
-app.post('/addtobasket/:id', function(req, res) {
+app.post("/addtobasket/:id", function (req, res) {
   const overviewId = req.params.id;
-  const overviewItem = productsData.find(product => product.id === Number(overviewId));
+  const overviewItem = productsData.find(
+    (product) => product.id === Number(overviewId)
+  );
   basket.push(overviewItem);
   console.log(basket);
-  res.send(basket)
+  res.send(basket);
 });
 
 // Basket
-app.get('/basket/', function(req, res) {
-  res.send(basket)
+app.get("/basket/", function (req, res) {
+  res.send(basket);
 });
 
 // Add to Wishlist
-app.post('/addtowishlist/:id', function(req, res) {
-});
+app.post("/addtowishlist/:id", function (req, res) {});
 
 // Remove from Basket
-app.delete('/removefrombasket/:id', function(req, res) {
+app.delete("/removefrombasket/:id", function (req, res) {
   const productId = req.params.id;
-  const product = basket.filter(product => product.id !== Number(productId));
+  const product = basket.filter((product) => product.id !== Number(productId));
 
   res.send(product);
 });
 
 // Books
-app.get('/books', function(req, res) {
+app.get("/books", function (req, res) {});
+
+app.listen(process.env.PORT, function (req, res) {
+  console.log("listening on port 4545");
 });
-
-
-app.listen(process.env.PORT, function(req, res) {
-  console.log('listening on port 4545');
-})

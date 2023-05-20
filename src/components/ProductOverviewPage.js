@@ -22,6 +22,9 @@ function ProductOverviewPage({ showHomePage, overviewData }) {
               <h4> {data.name} </h4>
               <h6> Added on: {data.addedDate}</h6>
               <h5> Price: £{data.price}</h5>
+              <h6> Publication Data: {data.publicationDate}</h6>
+              <h6> ISBN: {data.isbn}</h6>
+              <h6> Description: {data.description} </h6>
             </div>
             </div>
           );

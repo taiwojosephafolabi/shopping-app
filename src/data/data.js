@@ -4,9 +4,11 @@ export const productsData = [
   {
     id: uuid(),
     name: "Children Of Blood And Bone - Tomi Adeyemi",
-    image: "https://m.media-amazon.com/images/I/61Zxem3qIIL._SL500_.jpg",
-    addedDate: "25-12-2021",
-    price: 5.35,
+    image: "https://m.media-amazon.com/images/I/61Zxem3qIIL._SL500_.jpg",    price: 5.35,
+    isbn: "978-1-250-17097-2",
+    publicationDate: "06/03/2018",
+    description:
+      "Blood and Bone follows a young girl, Zélie, who lives in Orïsha, a mythical world filled with magic, monarchy, and the problems often associated with them: class discrimination, abuse of power, and violence."
   },
   {
     id: uuid(),
@@ -14,7 +16,7 @@ export const productsData = [
     image:
       "https://1.bp.blogspot.com/-FmVt32Oomxw/T4hDo_cO-sI/AAAAAAAAAD8/4PwXbtvZ4Sc/s1600/gc.jpg",
     addedDate: "12-02-2011",
-    price: 2.75,
+    price: 2.75
   },
   {
     id: uuid(),

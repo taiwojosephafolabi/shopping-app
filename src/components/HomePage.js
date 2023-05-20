@@ -58,7 +58,6 @@ function HomePage({
         data={data}
         AddToCart={AddToCart}
         AddToWishlist={AddToWishlist}
-        DeleteProduct={() => DeleteProduct()}
       />
       <Footer />
     </div>
