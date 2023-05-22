@@ -96,4 +96,11 @@ export const productsData = [
     addedDate: "15-02-2020",
     price: 56.99,
   },
+  {
+    id: uuid(),
+    name: "Spathiphyllum (Peace Lily)",
+    image:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ikea.com%2Fgb%2Fen%2Fp%2Fspathiphyllum-potted-plant-peace-lily-70144849%2F&psig=AOvVaw0_jiwWzVGRRujOfcxvZbM8&ust=1684672037009000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNCkn8Xyg_8CFQAAAAAdAAAAABAH",
+    price: 27,
+    description: "This plant is hardwearing and easy-care, so you can create a green home without being a gardening expert. Decorate your home with plants combined with a plant pot to suit your style. Native to Colombia and Venezuela. Easy care plant. This plant will dry out if placed too close to a heat source such as a radiator. Give your plants a boost with fertiliser every month. If you notice that the plant has gone dormant - let it be until next season. Repotting is not needed until 1 year after purchase. Remove dust every now and then to allow the plant to get as much light as possible. The height of the plants can vary."
+  }
 ];
