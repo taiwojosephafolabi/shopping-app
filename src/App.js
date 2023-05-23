@@ -70,36 +70,58 @@ export default function App() {
   console.log("STATE: ", wishlistData);
 
   const AddToCart = (item) => {
-    setCartData([...cartData, item]);
-    console.log("ITEM ADDED TO CART: ", item);
-    setCartTotal(cartTotal + 1);
-    setTotalPrice(totalPrice + Number(item.price));
-    console.log("CART:", cartData);
-    if (page === "Wishlist Page") {
-      // setWishlistData([remove(wishlistData.item)]);
-      setWishlistTotalItems(wishlistTotalItems - 1);
+    if (page === "Home Page") {
+      setCartData([...cartData, item]);
+      setCartTotal(cartTotal + 1);
+      setTotalPrice(Number(totalPrice + Number(item.price)));
     }
+
+    else if (page === "Wishlist Page") {
+      const filterProduct = (product) => {
+        if (product.id !== item.id) {
+          return product;
+        } else {
+          setWishlistTotalItems(wishlistTotalItems - 1);
+        }
+      };
+      const result = wishlistData.filter(filterProduct);
+      wishlistData.push(result);
+      setWishlistData(result);
+
+      setCartData([...cartData, item]);
+      
+      setCartTotal(cartTotal + 1);
+      setTotalPrice(Number(totalPrice + Number(item.price)));
+    }
+    console.log("ITEM ADDED TO CART: ", item);
   };
 
   const DeleteProduct = (event) => {
-    console.log("clicked");
-    console.log(event);
-
-    const filterProduct = (product) => {
-      if (product.id !== event) {
-        return product;
-      } else {
-        setTotalPrice((totalPrice - product.price).toFixed(2));
-        setCartTotal(cartTotal - 1);
-        setWishlistTotalItems(wishlistTotalItems - 1);
+    if (page === "Wishlist Page") {
+      const filterProduct = (product) => {
+        if (product.id !== event) {
+          return product;
+        } else {
+          setWishlistTotalItems(wishlistTotalItems - 1);
+        }
       };
-        
-    };
+      const result = wishlistData.filter(filterProduct);
+      wishlistData.push(result);
+      setWishlistData(result);
+    } else if (page === "Cart Page") {
+      const filterProduct = (product) => {
+        if (product.id !== event) {
+          return product;
+        } else {
+          setTotalPrice(Number(totalPrice - product.price));
+          setCartTotal(cartTotal - 1);
+        }
+      };
 
-    const result = cartData.filter(filterProduct);
-    // CHECK
-    cartData.push(result);
-    setCartData(result);
+      const result = cartData.filter(filterProduct);
+      cartData.push(result);
+      setCartData(result);
+    }
 
     console.log("Item deleted!");
   };
@@ -145,6 +167,7 @@ export default function App() {
           cartTotalPrice={totalPrice}
           setCartTotalPrice={setTotalPrice}
           cartData={cartData}
+          cartTotal={cartTotal}
           DeleteProduct={DeleteProduct}
         />
       );

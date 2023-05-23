@@ -1,7 +1,14 @@
 import React from "react";
 import DeleteButton from "./DeleteButton";
+import Count from "./CountButton";
 
-function CartPage({ showHomePage, cartData, cartTotalPrice, DeleteProduct }) {
+function CartPage({
+  showHomePage,
+  cartData,
+  cartTotal,
+  cartTotalPrice,
+  DeleteProduct,
+}) {
   return (
     <div className="App">
       <h1 className="heading">Cart</h1>
@@ -25,9 +32,13 @@ function CartPage({ showHomePage, cartData, cartTotalPrice, DeleteProduct }) {
               <div className="product-card2-info">
                 <h4> {data.name} </h4>
                 <h5> Price: £{data.price}</h5>
-                <span className="button-container2">
+                <div className="button-container3">
+                  <Count cartTotal={cartTotal} />
+                </div>
+                <span className="button-container4">
                   <DeleteButton DeleteProduct={() => DeleteProduct(data.id)} />
                 </span>
+                
               </div>
             </div>
           );
