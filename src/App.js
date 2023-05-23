@@ -29,20 +29,11 @@ export default function App() {
 
   const backToLandingPage = () => {
     setPage("Landing Page");
-    // clear overviewData state to nothing
   };
 
   const showProductOverviewPage = (item) => {
     setPage("Overview Product Page");
-    // State did not work - CHECK
-    // setOverviewData(item);
     setOverviewData([...overviewData, item]);
-    // overviewData.push(item);
-    console.log("OVERVIEW ITEM: ", item);
-    console.log("PRODUCT: ", overviewData);
-
-    // get id
-    // pass overviewData data to productOverviewPage
   };
 
   const showWishlistPage = () => {
@@ -53,18 +44,10 @@ export default function App() {
     setPage("Cart Page");
   };
 
-  // const wishlists = [];
-
   const AddToWishlist = (item) => {
-    // State did not work - CHECK
-    // wishlists.push(item);
     setWishlistData([...wishlistData, item]);
-
-    console.log("ITEMS: ", item);
-    // wishlistData.push(item);
     console.log("ITEM ADDED TO WISHLIST: ", item);
     setWishlistTotalItems(wishlistTotalItems + 1);
-    console.log("WISHLIST:", wishlistData);
   };
 
   console.log("STATE: ", wishlistData);
@@ -74,9 +57,7 @@ export default function App() {
       setCartData([...cartData, item]);
       setCartTotal(cartTotal + 1);
       setTotalPrice(Number(totalPrice + Number(item.price)));
-    }
-
-    else if (page === "Wishlist Page") {
+    } else if (page === "Wishlist Page") {
       const filterProduct = (product) => {
         if (product.id !== item.id) {
           return product;
@@ -87,9 +68,7 @@ export default function App() {
       const result = wishlistData.filter(filterProduct);
       wishlistData.push(result);
       setWishlistData(result);
-
       setCartData([...cartData, item]);
-      
       setCartTotal(cartTotal + 1);
       setTotalPrice(Number(totalPrice + Number(item.price)));
     }
