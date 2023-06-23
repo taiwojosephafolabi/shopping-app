@@ -1,26 +1,27 @@
-import React from 'react';
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 
 function BasicExample({
   backToLandingPage,
   showHomePage,
-  
-  wishlistItem,
-  setWishlistItem,
+  showWishlistPage,
+  showCartPage,
+  setSearch,
+
+  wishlistTotalItems,
+  setWishlistTotalItems,
   AddToWishlist,
-  
-  cartItem,
-  setCartItem,
+
   cartTotal,
   setCartTotal,
-  AddToCart
+  cartTotalPrice,
+  setCartTotalPrice,
+  AddToCart,
 }) {
   return (
     <Navbar expand="lg">
@@ -32,16 +33,8 @@ function BasicExample({
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={() => showHomePage()}>Home</Nav.Link>
-            <Nav.Link href="#link">Store</Nav.Link>
-            <NavDropdown title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Orders</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Liked Items
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Settings</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link onClick={() => showWishlistPage()}>Wishlist</Nav.Link>
+            <Nav.Link onClick={() => showCartPage()}>Cart</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -49,22 +42,25 @@ function BasicExample({
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(event) => setSearch(event.target.value)}
             />
-            <Button className="search-button">Search</Button>
           </Form>
         </Navbar.Collapse>
+
         <Wishlist
-          wishlistItem={wishlistItem}
-          setWishlistItem={setWishlistItem}
-          AddToWishlist={(event) => AddToWishlist(wishlistItem)}
+          showWishlistPage={showWishlistPage}
+          wishlistTotalItems={wishlistTotalItems}
+          setWishlistTotalItems={setWishlistTotalItems}
+          AddToWishlist={() => AddToWishlist()}
         />
+
         <Cart
-          cartItem={cartItem}
-          setCartItem={setCartItem}
+          showCartPage={showCartPage}
           cartTotal={cartTotal}
           setCartTotal={setCartTotal}
-          AddToCart={(event) => AddToCart(event)}
-
+          cartTotalPrice={cartTotalPrice}
+          setCartTotalPrice={setCartTotalPrice}
+          AddToCart={() => AddToCart()}
         />
       </Container>
     </Navbar>

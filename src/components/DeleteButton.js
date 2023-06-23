@@ -1,11 +1,10 @@
+import { TiDelete } from "react-icons/ti";
+
 function DeleteButton({ DeleteProduct }) {
   return (
     <div>
-      <button
-        className="delete-product-btn"
-        onClick={(event) => DeleteProduct(event)}
-      >
-        Delete Product
+      <button className="button" onClick={DeleteProduct}>
+        <TiDelete />
       </button>
     </div>
   );

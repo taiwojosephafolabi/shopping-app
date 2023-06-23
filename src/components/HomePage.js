@@ -1,36 +1,48 @@
 import React from "react";
-import NavbarComp from "./NavbarComp";
-import Footer from "./Footer";
+import Navbar from "./Navbar";
 import Categories from "./Categories";
 import Products from "./Products";
+import Footer from "./Footer";
 
 function HomePage({
   showHomePage,
   backToLandingPage,
-  items,
+  showWishlistPage,
+  showCartPage,
+  showProductOverviewPage,
+
+  search,
+  setSearch,
+
   data,
-  cartItem,
-  setCartItem,
+
+  wishlistTotalItems,
+  setWishlistTotalItems,
+  AddToWishlist,
+
   cartTotal,
   setCartTotal,
-  wishlistItem,
-  setWishlistItem,
-  showProductOverviewPage,
+  cartTotalPrice,
+  setCartTotalPrice,
   AddToCart,
-  AddToWishlist,
+
   DeleteProduct,
 }) {
   return (
     <div className="App">
-      <NavbarComp
+      <Navbar
         backToLandingPage={backToLandingPage}
         showHomePage={showHomePage}
-        wishlistItem={wishlistItem}
-        setWishlistItem={setWishlistItem}
-        cartItem={cartItem}
-        setCartItem={setCartItem}
+        showWishlistPage={showWishlistPage}
+        showCartPage={showCartPage}
+        search={search}
+        setSearch={setSearch}
+        wishlistTotalItems={wishlistTotalItems}
+        setWishlistTotalItems={setWishlistTotalItems}
         cartTotal={cartTotal}
         setCartTotal={setCartTotal}
+        cartTotalPrice={cartTotalPrice}
+        setCartTotalPrice={setCartTotalPrice}
       />
 
       <Categories />
@@ -39,14 +51,13 @@ function HomePage({
 
       <Products
         showProductOverviewPage={(event) => showProductOverviewPage(event)}
-        wishlistItem={wishlistItem}
-        cartItem={cartItem}
+        search={search}
+        wishlistITotaltems={wishlistTotalItems}
         cartTotal={cartTotal}
-        items={data}
+        cartTotalPrice={cartTotalPrice}
         data={data}
-        AddToCart={(event) => AddToCart(cartItem)}
-        AddToWishlist={(event) => AddToWishlist(wishlistItem)}
-        DeleteProduct={(event) => DeleteProduct(event)}
+        AddToCart={AddToCart}
+        AddToWishlist={AddToWishlist}
       />
       <Footer />
     </div>
