@@ -112,6 +112,7 @@ app.get("/", function (req, res) {
 
 // Home Page & Display items
 app.get("/home", function (req, res) {
+  console.log(productsData);
   res.send(productsData);
 });
 
@@ -157,5 +158,5 @@ app.delete("/removefrombasket/:id", function (req, res) {
 app.get("/books", function (req, res) {});
 
 app.listen(process.env.PORT, function (req, res) {
-  console.log("listening on port 4545");
+  console.log(`listening on port ${process.env.PORT}`);
 });
